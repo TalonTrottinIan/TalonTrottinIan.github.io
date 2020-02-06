@@ -19,20 +19,9 @@ function draw() {
   keyboardInput();
 }
 
-function keyboardInput(){
-  if (keyPressed === true){
+function keyPressed()
 
-  
-  if(keyCode === LEFT_ARROW){
-    x -= 10;
-  }
-  else if (keyCode === RIGHT_ARROW){
-    x += 10;
-    }
-  }
-}
 
-function keyPressed();
 
 function character(x,y){
   fill(100);
