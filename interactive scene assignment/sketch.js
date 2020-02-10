@@ -3,14 +3,29 @@
 // 2/6/2020
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - i made a horroe scene featuring a soulless character 
+// - with changing backgound colours. read comments for keys to press. 
 
 let x,y;
-//let currentBack = (i = 0, i <=3, i++);
+let currentBack = 0;
 
-//if mouseIsPressed(){
-//  return currentBack(i++);
-//}
+function keyTyped(){ //thus function sets up the change to background colours
+  if(key === "a"){ //links a colour to a
+    currentBack = 0;
+  }
+  else if(key === "s"){ //links a colour to s
+    currentBack = 1;
+  }
+  else if(key === "d"){ //links a colour to d
+    currentBack = 2;
+  }
+  else {
+    currentBack = 3; //links a colour to any other key
+  }
+
+}
+
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -20,8 +35,22 @@ function setup() {
 
 
 function draw() {
-  background(40);
+  // this if statement decides backgound colours for the key presses
+  if (currentBack === 0){
+    background(51, 51, 26);
+  }
+  else if(currentBack === 1){
+    background(128, 26, 0);
+  }
+  else if(currentBack === 2){
+    background(0, 77, 0);
+  }
+  else{
+    background(77, 0, 77);
+  }
+
   character(mouseX,mouseY);
+  //calling backgound objects and text here
   background1();
   screentext(); 
   
@@ -30,7 +59,7 @@ function draw() {
 
 
 
-
+//this function draws the character, which is drawn here to hide it behind objects
 function character (x,y){
 
   //hugging arms
@@ -64,13 +93,17 @@ function character (x,y){
 
 }
 
+//this function sets up the background objects
 function background1(){
+
+  //moon drawing? Mostly just a circle
   strokeWeight(4);
   
   fill(255,200,200);
 
   circle(1500,0,600);
   
+  // house drawing
   fill(0,0,100);
   rectMode(CORNER);
   rect(600,500,300,200);
