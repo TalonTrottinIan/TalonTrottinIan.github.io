@@ -9,6 +9,10 @@ let x,y;
 const FADE_SPEED = 3;
 
 let corner1, corner2, corner3, corner4;
+let Q1Fill = 255;
+let Q2Fill = 255;
+let Q3Fill = 255;
+let Q4Fill = 255;
 
 function mouseCorner(x,y){ //if mouse divi something (so in a certain quad) set corner to a number
   if (x <= windowWidth/2 && y <= windowHeight/2){
@@ -38,25 +42,39 @@ function draw() {
   rect(width/2,height/2,width/2,height/2);
   mouseCorner(mouseX,mouseY);
   if (corner === 1){
-    fill(0);
+    Q1Fill = 0;
     rect(0, 0, width/2,height/2);
   }
-  else if (corner === 2){
+  else Q1Fill += 10;
+  if (corner === 2){
     fill(0);
     rect(width/2,0,width/2,height/2);
   }
-  else if (corner === 3){
-    fill(0);
+  else Q2Fill += 10;
+  if (corner === 3){
+    Q3Fill = 0;
     rect(0,height/2,width/2,height/2);
   }
-  else{
-    fill(0);
+  else Q3Fill += 10;
+  if (corner === 4) {
+    Q4Fill = 0;
     rect(width/2,height/2,width/2,height/2);
   }
+  else Q4Fill += 10;
 }
-if (x <= windowWidth/2 && y <= windowHeight/2){
-  corner === 1;
-}
-else{
-  fill(0, FADE_SPEED);
-}
+ 
+
+
+
+
+
+
+
+
+
+//if (x <= windowWidth/2 && y <= windowHeight/2){
+//  corner === 1;
+//}
+//else{
+//  fill(0, FADE_SPEED);
+//}
