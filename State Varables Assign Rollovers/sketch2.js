@@ -6,7 +6,7 @@
 
 let corner = 0;
 let x,y;
-const FADE_SPEED = 20;
+const FADE_SPEED = 3;
 
 let corner1, corner2, corner3, corner4;
 let Q1Fill, Q2Fill, Q3Fill, Q4Fill;
@@ -14,7 +14,7 @@ let Q1Fill, Q2Fill, Q3Fill, Q4Fill;
 function mouseCorner(x,y){ //if mouse divi something (so in a certain quad) set corner to a number
   if (x <= windowWidth/2 && y <= windowHeight/2){
     corner = 1;
-    Q1Fill = 0;
+    Q1Fill(0);
     Q2Fill += FADE_SPEED;
     Q3Fill += FADE_SPEED;
     Q4Fill += FADE_SPEED;
@@ -22,7 +22,7 @@ function mouseCorner(x,y){ //if mouse divi something (so in a certain quad) set 
   else if (x >= windowWidth/2 && y <= windowHeight/2){
     corner = 2;
     Q1Fill += FADE_SPEED;
-    Q2Fill = 0;
+    Q2Fill(0);
     Q3Fill += FADE_SPEED;
     Q4Fill += FADE_SPEED;
   }
@@ -30,7 +30,7 @@ function mouseCorner(x,y){ //if mouse divi something (so in a certain quad) set 
     corner = 3;
     Q1Fill += FADE_SPEED;
     Q2Fill += FADE_SPEED;
-    Q3Fill = 0;
+    Q3Fill(0);
     Q4Fill += FADE_SPEED;
   }
   else{
@@ -38,7 +38,7 @@ function mouseCorner(x,y){ //if mouse divi something (so in a certain quad) set 
     Q1Fill += FADE_SPEED;
     Q2Fill += FADE_SPEED;
     Q3Fill += FADE_SPEED;
-    Q4Fill = 0;
+    Q4Fill(0);
   }
 }
 
@@ -54,19 +54,22 @@ function draw() {
   rect(0,height/2,width/2,height/2);
   rect(width/2,height/2,width/2,height/2);
   mouseCorner(mouseX,mouseY);
-
-  fill(Q1Fill);
-  rect(0, 0, width/2,height/2);
-
-  fill(Q2Fill);
-  rect(width/2,0,width/2,height/2);
-
-  fill(Q3Fill);
-  rect(0,height/2,width/2,height/2);
-
-  fill(Q4Fill);
-  rect(width/2,height/2,width/2,height/2);
-
+//  if (corner === 1){
+fill(Q1Fill);
+rect(0, 0, width/2,height/2);
+//  }
+//  if (corner === 2){
+fill(Q2Fill);
+rect(width/2,0,width/2,height/2);
+//  }
+//  if (corner === 3){
+fill(Q3Fill);
+rect(0,height/2,width/2,height/2);
+//  }
+//  if (corner === 4) {
+fill(Q4Fill);
+rect(width/2,height/2,width/2,height/2);
+//  }
 }
  
 
