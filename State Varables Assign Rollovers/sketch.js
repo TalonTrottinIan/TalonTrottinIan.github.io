@@ -1,9 +1,8 @@
 // State Variables: Rollovers
 // Ian Fuchs
 // Feb 12 2020
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
 
+//setting corner variables, and variables for fading. The Fade Speed is also set below.
 let corner = 0;
 let x,y;
 const FADE_SPEED = 20;
@@ -11,7 +10,8 @@ const FADE_SPEED = 20;
 let corner1, corner2, corner3, corner4;
 let Q1Fill, Q2Fill, Q3Fill, Q4Fill;
 
-function mouseCorner(x,y){ //if mouse divi something (so in a certain quad) set corner to a number
+// The below function connects a corner to a fill, and lets it fade when the mouse leaves the quadrant.
+function mouseCorner(x,y){ 
   if (x <= windowWidth/2 && y <= windowHeight/2){
     corner = 1;
     Q1Fill = 0;
@@ -47,6 +47,7 @@ function setup() {
 }
 
 function draw() {
+  //This draws all of the initial rectangles.
   background(255);
   fill(255);
   rect(0, 0, width/2,height/2);
@@ -55,6 +56,7 @@ function draw() {
   rect(width/2,height/2,width/2,height/2);
   mouseCorner(mouseX,mouseY);
 
+  // This fills each corner to black when the mouse is over an area.
   fill(Q1Fill);
   rect(0, 0, width/2,height/2);
 
@@ -68,19 +70,3 @@ function draw() {
   rect(width/2,height/2,width/2,height/2);
 
 }
- 
-
-
-
-
-
-
-
-
-
-//if (x <= windowWidth/2 && y <= windowHeight/2){
-//  corner === 1;
-//}
-//else{
-//  fill(0, FADE_SPEED);
-//}
