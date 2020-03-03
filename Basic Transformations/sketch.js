@@ -13,10 +13,37 @@ function draw() {
   //drawBasicGrid(200);
 
   push();
+  stroke(random(255),random(255),random(255));
   translate(width/2,height/2);
   ellipseMode(CENTER);
+  strokeWeight(5);                                               
+  ellipse(0,0,width*0.4,width*0.4);
+
+  for(let i = 0; i < 60; i ++){
+    if (i%5 === 0){
+      strokeWeight(4);
+      line(width*0.15,0,width*0.19,0);
+    }
+    else{
+      strokeWeight(2);
+      line(width*0.16,0,width*0.19,0); 
+    }
+    rotate(radians(6));
+  }
+  rotate(radians(-90));
+  push();
+  stroke(random(255),random(255),random(255));
+  strokeWeight(2);
+  rotate(radians(second()*6));
+  line(0,0,width*0.19,0); 
+  pop();
+
+  push();
+  stroke(random(255),random(255),random(255));
   strokeWeight(4);
-  ellipse(0,0,width*0.3,height*0.3);
+  rotate(radians(minute()*6 + second()/10));
+  line(0,0,width*0.18,0);      
+
   pop();
 
 }
