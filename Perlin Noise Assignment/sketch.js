@@ -6,10 +6,13 @@
 // - describe what you did to take this project "above and beyond"
 let rectChange = 0;
 let tTime;
+let tallest;
+let randomHeight;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   tTime = random(100);
+  randomHeight = map(noise(tTime),0,1,0,height);
   background(220);
   rectMode(CORNERS);
   rectChange = 1;
@@ -19,17 +22,15 @@ function setup() {
 
 function draw() {    
 }
-function drawFlag(){
 
-
-}
 
 
 function generateTerrain(){
-  for(let i = 0; i < width; i += 1){
-    rect(i,height,i+rectChange,map(noise(tTime),0,1,0,height));
+  for(let i = 0; i < width; i += rectChange){
+    rect(i,height,i+rectChange,randomHeight);
+    tallest = randomHeight;
     tTime += 0.01;
-    // x += 20;
+    randomHeight = map(noise(tTime),0,1,0,height);
   }
 }
 
@@ -48,10 +49,24 @@ function keyPressed(){
     generateTerrain();
   }
   else if(keyCode === LEFT_ARROW){
-    background(220);
-    rectChange -= 5;
-    stroke(random(255),random(255),random(255));
-    fill(random(255),random(255),random(255));
-    generateTerrain();
+    if(rectChange > 1){
+      background(220);
+      rectChange -= 5;
+      stroke(random(255),random(255),random(255));
+      fill(random(255),random(255),random(255));
+      generateTerrain();
+    }
+    else{
+      background(220);
+      rectChange -= 0;
+      stroke(random(255),random(255),random(255));
+      fill(random(255),random(255),random(255));
+      generateTerrain();
+    }
   }
+}
+
+function drawFlag(){
+
+
 }
